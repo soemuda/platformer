@@ -27,8 +27,8 @@ class Player(pg.sprite.Sprite):
         self.load_images()
         self.image = self.standing_frames[0]
         self.rect = self.image.get_rect()
-        self.rect.center = (WIDTH / 2, HEIGHT / 2)
-        self.pos = vec(WIDTH / 2, HEIGHT / 2)
+        self.rect.center = (40, HEIGHT - 100)
+        self.pos = vec(40, HEIGHT - 100)
         self.vel = vec(0, 0)
         self.acc = vec(0, 0)
 
@@ -47,9 +47,9 @@ class Player(pg.sprite.Sprite):
         self.jump_frame = self.game.spritesheet.get_image(382, 763, 150, 181)
         self.jump_frame.set_colorkey(BLACK)
     def jump(self):
-        self.rect.x += 1
+        self.rect.x += 2
         hits = pg.sprite.spritecollide(self, self.game.platforms, False)
-        self.rect.x -= 1
+        self.rect.x -= 2
         if hits:
             self.vel.y = -PLAYER_JUMP
 
