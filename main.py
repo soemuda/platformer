@@ -3,6 +3,7 @@
 # Video link: https://youtu.be/G8pYfkIajE8
 # Jumping
 # file I/O
+#teretereteretere
 
 import pygame as pg
 import random
@@ -66,9 +67,9 @@ class Game:
                 self.player.vel.y = 0
         # if player reaches top 1/4 of screen
         if self.player.rect.top <= HEIGHT / 4:
-            self.player.pos.y += abs(self.player.vel.y)
+            self.player.pos.y += max(abs(self.player.vel.y), 4)
             for plat in self.platforms:
-                plat.rect.y += abs(self.player.vel.y)
+                plat.rect.y += max(abs(self.player.vel.y), 4)
                 if plat.rect.top >= HEIGHT:
                     plat.kill()
                     self.score += 10
